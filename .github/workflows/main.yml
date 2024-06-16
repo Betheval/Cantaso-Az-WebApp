@@ -1,0 +1,28 @@
+name: Update Web App and Blob Storage
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.12.0'
+          
+      - name: Move to App
+        run: cd ./App
+        
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build React app
+        run: npm run build
