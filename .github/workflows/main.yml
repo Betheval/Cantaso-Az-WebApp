@@ -12,17 +12,25 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.12.0'
-          
+          node-version: "18.12.0"
+
       - name: Move to App
-        run: ls -la
-        
+        run: cd ./App/cantaso
+
       - name: Install dependencies
         run: npm install
 
       - name: Build React app
         run: npm run build
+
+      - name: "Deploy to Azure Web App"
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: "cantasowebapp"
+          slot-name: "production"
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }} # Publica el perfil desde los secretos de GitHub
+          package: "./App/cantaso/build" # Ajusta según el directorio donde está tu build
