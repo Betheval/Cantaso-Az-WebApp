@@ -23,7 +23,7 @@ const HeroSection = () => {
       >
         <Row>
           <Col>
-            <h1>Welcome to Cantada</h1>
+            <h1>Welcome to Cantaso</h1>
             <p>Your professional solution for all technological needs.</p>
           </Col>
         </Row>
