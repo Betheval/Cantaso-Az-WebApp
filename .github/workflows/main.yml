@@ -19,7 +19,7 @@ jobs:
           node-version: "18.12.0"
 
       - name: Move to App
-        run: ls -la
+        run: cd .\App\cantaso\
 
       - name: Install dependencies
         run: npm install
