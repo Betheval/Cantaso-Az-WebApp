@@ -18,14 +18,11 @@ jobs:
         with:
           node-version: "18.12.0"
 
-      - name: Move to App
-        run: cd App/cantaso/
-
-      - name: Install dependencies
-        run: npm install
+      - name: Move to App and Install dependencies
+        run: cd App/cantaso/ && npm install
 
       - name: Build React app
-        run: npm run build
+        run: cd App/cantaso/ && npm run build
 
       - name: "Deploy to Azure Web App"
         uses: azure/webapps-deploy@v2
